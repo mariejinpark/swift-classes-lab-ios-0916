@@ -14,6 +14,41 @@
  */
 // write your code here
 
+class Thermometer {
+    
+    var fahrenheit: Double
+    var description: String {
+        return "The current temperature is \(fahrenheit)°F (\(celsius)°C)"
+        }
+    
+    var celsius: Double {
+        
+        get {
+            return (fahrenheit - 32.0) * 5/9
+        }
+        set {
+            // change the fahrenheit stored property (do some math) based upon the newValue constant we have access to within the scope of this set { }.
+            fahrenheit = (newValue * 9/5) + 32.0
+        }
+    }
+ 
+    init (fahrenheit: Double) {
+        self.fahrenheit = fahrenheit
+        
+    }
+    
+}
+
+//var myThermometer = Thermometer(fahrenheit: 0.0)
+//print(myThermometer.celsius)
+//myThermometer.celsius = 0.0
+
+
+//let myFavThermometer = Thermometer(fahrenheit: 55.0)
+//myFavThermometer.fahrenheit
+//myFavThermometer.celsius
+//myFavThermometer.celsius = 100.0
+//myFavThermometer.celsius = 999999
 /*: section2
  
  ## Question 2
@@ -22,6 +57,7 @@
  */
 // write your code here
 
+var thermometer = Thermometer(fahrenheit: 88.0)
 assert(thermometer.fahrenheit == 88.0, "thermometer.fahrenheit is \(thermometer.fahrenheit)")
 
 /*: section3
@@ -32,6 +68,9 @@ assert(thermometer.fahrenheit == 88.0, "thermometer.fahrenheit is \(thermometer.
  
  You can make your modifications to the code you wrote for Question #1.
  */
+var thermometer2 = Thermometer(fahrenheit: 88.0)
+print ("Celcius is \(thermometer2.celsius)")
+
 assert(thermometer.celsius - 31.1 < 0.1, "thermometer.celsius is \(thermometer.celsius)")
 
 /*: section4
@@ -41,6 +80,8 @@ assert(thermometer.celsius - 31.1 < 0.1, "thermometer.celsius is \(thermometer.c
  Perfect! Now, change the `fahrenheit` temperature of your `Thermometer` instance to 100.0.
  */
 // write your code here
+
+thermometer.fahrenheit = 100.0
 
 assert(thermometer.fahrenheit == 100.0, "thermometer.fahrenheit is \(thermometer.fahrenheit)")
 assert(thermometer.celsius - 37.7 < 0.1, "thermometer.celsius is \(thermometer.celsius)")
@@ -59,14 +100,17 @@ assert(thermometer.celsius - 37.7 < 0.1, "thermometer.celsius is \(thermometer.c
  */
 // write your code here
 
+
+thermometer.celsius = 100.0
+
 assert(thermometer.celsius == 100.0, "thermometer.celsius is \(thermometer.celsius)")
 assert(thermometer.fahrenheit == 212.0, "thermometer.fahrenheit is \(thermometer.fahrenheit)")
-
 /*: section7
  
  ## Question 7
  
  Add another property to the class definition you created in Question #1. This property should be called `description`. It should return a string in the form: "The current temperature is <fahrenheit>°F (<celsius>°C)".
  */
+thermometer.description
 assert(thermometer.description == "The current temperature is 212.0°F (100.0°C)",
-       "thermometer.description is: \(thermometer.description)")
+"thermometer.description is: \(thermometer.description)")
